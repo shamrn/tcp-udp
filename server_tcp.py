@@ -1,9 +1,8 @@
 import socket
 import threading
-from art_net import send_dmx
 
 HOST = '0.0.0.0'
-PORT = 8000
+PORT = 8020
 
 
 def start_server():
@@ -27,7 +26,8 @@ def handler(sock):
     while True:
         data = sock.recv(1024).decode()
         if not data: break  # NOQA
-        send_dmx(data)
+
+        print(data)
 
     sock.close()
 
